@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,19 +25,19 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgu-AL-NbW">
-                        <rect key="frame" x="0.0" y="0.0" width="151" height="48"/>
-                        <connections>
-                            <action selector="tabItemTouchUpInside:" destination="Njo-bq-MVA" eventType="touchUpInside" id="SX2-kA-L0U"/>
-                        </connections>
-                    </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UkM-Ly-JBr">
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UkM-Ly-JBr">
                         <rect key="frame" x="0.0" y="48" width="151" height="2"/>
                         <color key="backgroundColor" red="0.61176470588235299" green="0.91764705882352937" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="5V3-an-ChN"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgu-AL-NbW">
+                        <rect key="frame" x="0.0" y="0.0" width="151" height="50"/>
+                        <connections>
+                            <action selector="tabItemTouchUpInside:" destination="Njo-bq-MVA" eventType="touchUpInside" id="SX2-kA-L0U"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -51,7 +51,7 @@
                 <constraint firstItem="IWJ-4f-Lz7" firstAttribute="centerY" secondItem="Njo-bq-MVA" secondAttribute="centerY" id="Um2-ZX-MDO"/>
                 <constraint firstItem="IWJ-4f-Lz7" firstAttribute="centerY" secondItem="Njo-bq-MVA" secondAttribute="centerY" id="YZv-VV-EQn"/>
                 <constraint firstAttribute="trailing" secondItem="Sgu-AL-NbW" secondAttribute="trailing" priority="750" id="mA5-Ef-SrJ"/>
-                <constraint firstItem="UkM-Ly-JBr" firstAttribute="top" secondItem="Sgu-AL-NbW" secondAttribute="bottom" priority="750" id="qYV-Rl-all"/>
+                <constraint firstAttribute="bottom" secondItem="Sgu-AL-NbW" secondAttribute="bottom" priority="750" id="nap-NU-Cy0"/>
             </constraints>
             <size key="customSize" width="151" height="50"/>
             <connections>
