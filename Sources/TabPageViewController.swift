@@ -84,12 +84,13 @@ public extension TabPageViewController {
 
         beforeIndex = index
         shouldScrollCurrentBar = false
+        self.view.isUserInteractionEnabled = false
         let nextViewControllers: [UIViewController] = [tabItems[index].viewController]
 
         let completion: ((Bool) -> Void) = { [weak self] _ in
             self?.shouldScrollCurrentBar = true
             self?.beforeIndex = index
-            self?.tabView.updateCurrentIndex(index, shouldScroll: true)
+            self?.view.isUserInteractionEnabled = true
         }
 
         setViewControllers(
@@ -99,6 +100,7 @@ public extension TabPageViewController {
             completion: completion)
 
         guard isViewLoaded else { return }
+        self.tabView.updateCurrentIndex(index, shouldScroll: true)
     }
 }
 
