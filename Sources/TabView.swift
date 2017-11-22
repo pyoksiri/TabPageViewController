@@ -38,7 +38,8 @@ internal class TabView: UIView {
     @IBOutlet fileprivate weak var currentBarViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var currentBarViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var bottomBarViewHeightConstraint: NSLayoutConstraint!
-
+    @IBOutlet fileprivate weak var lineView: UIView!
+    
     init(isInfinity: Bool, option: TabPageOption) {
        super.init(frame: CGRect.zero)
         self.option = option
@@ -88,17 +89,17 @@ internal class TabView: UIView {
         cellForSize = nib.instantiate(withOwner: nil, options: nil).first as! TabCollectionCell
 
         collectionView.scrollsToTop = false
-
-        currentBarView.backgroundColor = option.currentColor
+        lineView.isHidden = option.isHiddenLine
+        currentBarView.backgroundColor = option.currentTabColor
         currentBarViewHeightConstraint.constant = option.currentBarHeight
         if !isInfinity {
             currentBarView.removeFromSuperview()
-            collectionView.addSubview(currentBarView)
+            contentView.insertSubview(currentBarView, belowSubview: collectionView)
             currentBarView.translatesAutoresizingMaskIntoConstraints = false
             let top = NSLayoutConstraint(item: currentBarView,
                 attribute: .top,
                 relatedBy: .equal,
-                toItem: collectionView,
+                toItem: contentView,
                 attribute: .top,
                 multiplier: 1.0,
                 constant: option.tabHeight - currentBarViewHeightConstraint.constant)
@@ -106,12 +107,12 @@ internal class TabView: UIView {
             let left = NSLayoutConstraint(item: currentBarView,
                 attribute: .leading,
                 relatedBy: .equal,
-                toItem: collectionView,
+                toItem: contentView,
                 attribute: .leading,
                 multiplier: 1.0,
                 constant: 0.0)
             currentBarViewLeftConstraint = left
-            collectionView.addConstraints([top, left])
+            contentView.addConstraints([top, left])
         }
 
         bottomBarViewHeightConstraint.constant = 1.0 / UIScreen.main.scale
