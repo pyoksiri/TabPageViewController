@@ -87,7 +87,6 @@ internal class TabView: UIView {
         let nib = UINib(nibName: TabCollectionCell.cellIdentifier(), bundle: bundle)
         collectionView.register(nib, forCellWithReuseIdentifier: TabCollectionCell.cellIdentifier())
         cellForSize = nib.instantiate(withOwner: nil, options: nil).first as! TabCollectionCell
-
         collectionView.scrollsToTop = false
         lineView.isHidden = option.isHiddenLine
         currentBarView.backgroundColor = option.currentTabColor
