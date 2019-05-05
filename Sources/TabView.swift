@@ -86,7 +86,7 @@ internal class TabView: UIView {
         let bundle = Bundle(for: TabView.self)
         let nib = UINib(nibName: TabCollectionCell.cellIdentifier(), bundle: bundle)
         collectionView.register(nib, forCellWithReuseIdentifier: TabCollectionCell.cellIdentifier())
-        cellForSize = nib.instantiate(withOwner: nil, options: nil).first as! TabCollectionCell
+        cellForSize = nib.instantiate(withOwner: nil, options: nil).first as? TabCollectionCell
         collectionView.scrollsToTop = false
         lineView.isHidden = option.isHiddenLine
         currentBarView.backgroundColor = option.currentTabColor
@@ -277,7 +277,7 @@ extension TabView {
     fileprivate func deselectVisibleCells() {
         collectionView
             .visibleCells
-            .flatMap { $0 as? TabCollectionCell }
+            .compactMap { $0 as? TabCollectionCell }
             .forEach { $0.isCurrent = false }
     }
 }
